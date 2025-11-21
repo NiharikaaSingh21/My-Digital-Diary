@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div class="container hero-inner glass">
+    <div class="hero-left">
+      
+    </div>
+    <div class="hero-right">
+      <h1>Hi, I'm <span class="accent">Niharikaa Singh</span></h1>
+      <p class="lead">Full-stack developer • Python & Flask enthusiast • building clean user interfaces</p>
+      <p class="cta-row">
+        <a class="btn" href="#projects">View Projects</a>
+        <a class="btn ghost" href="#contact">Contact Me</a>
+        
+      </p>
+     <div class="social-buttons">
+    <a href="https://github.com/NiharikaaSingh21" target="_blank" class="social-btn github">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="icon">
+        GitHub
+    </a>
+
+    <a href="https://www.linkedin.com/in/niharikaa21/" target="_blank" class="social-btn linkedin">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="icon">
+        LinkedIn
+    </a>
+</div>
+    </div>
+  </div>
+</section>
+<section id="about" class="section">
+  <div class="container glass panel" style="padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px rgba(0,0,0,0.1);">
+    
+    <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; color: var(--accent);text-shadow: 0 2px 8px var(--accent-glow); margin-bottom: 1.5rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.2);">
+      About
+    </h2>
+    
+
+    <p style="font-size: 1.05rem; line-height: 1.8; color: #f0f0f0; text-align: justify;">
+      As a dedicated Web Developer, I thrive on building robust and dynamic applications, specializing in the Python ecosystem. My deep knowledge of Python, coupled with a strong command of SQL, allows me to architect efficient, data-driven backends, often leveraging the Flask framework to create powerful and scalable APIs. On the frontend, I translate complex requirements into intuitive user experiences using the core technologies of HTML, CSS, and vanilla JavaScript. My expertise lies in seamlessly integrating the polished presentation layer with the secure, functional logic of the Flask backend, ensuring a cohesive, full-stack solution from database interaction to deployment.
+    </p>
+    
+  </div>
+</section>
+<section id="Skills">
+<div class="container glass panel skills-section">
+  <h1 class="skills-title">Skills</h1>
+
+  <div class="skills-grid" >
+    <div class="skill-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="">
+      <span>Python</span>
+    </div>
+
+    <div class="skill-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="">
+      <span>Flask</span>
+    </div>
+
+    <div class="skill-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="">
+      <span>HTML</span>
+    </div>
+
+    <div class="skill-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="">
+      <span>CSS</span>
+    </div>
+
+    <div class="skill-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="">
+      <span>JavaScript</span>
+    </div>
+
+    <div class="skill-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="">
+      <span>SQL</span>
+    </div>
+
+    <div class="skill-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="">
+      <span>Java</span>
+    </div>
+    <div class="skill-card">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="">
+  <span>GitHub</span>
+</div>
+
+<div class="skill-card">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="">
+  <span>AI / ML</span>
+</div>
+  </div>
+</div>
+</section>
+
+
+<section id="projects" class="section">
+  <div class="container">
+    <h2>Projects</h2>
+    <div class="grid">
+      {% for p in projects %}
+      <article class="card glass">
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.desc }}</p>
+        <a class="link" href="{{ p.link }}" target="_blank">View →</a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="container glass panel">
+    <h2>Contact</h2>
+    <form action="{{ url_for('contact') }}" method="POST" class="contact-form">
+      <label>
+        Name
+        <input type="text" name="name" required>
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" required>
+      </label>
+      <label>
+        Message
+        <textarea name="message" rows="5" required></textarea>
+      </label>
+      <div class="form-row">
+        <button class="btn" type="submit">Send Message</button>
+        <button type="reset" class="btn ghost">Reset</button>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}
